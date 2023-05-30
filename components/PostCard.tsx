@@ -15,7 +15,7 @@ export default function PostCard({ post }: { post: Post }) {
         <Link href={`/posts/${post.slug}`}>
           <Image
             className='mb-5 h-auto w-full rounded-xl bg-no-repeat object-cover object-center transition-transform duration-200 ease-out hover:scale-[1.02]'
-            src={`${post.metadata.hero?.imgix_url}?w=1400&h=340&auto=format`}
+            src={`${post.metadata.hero?.imgix_url}?w=2800&auto=format`}
             width={1400}
             height={340}
             priority
