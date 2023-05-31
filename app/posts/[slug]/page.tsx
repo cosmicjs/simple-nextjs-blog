@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import ArrowLeft from '../../../components/ArrowLeft';
+import ArrowLeft from '../../../components/icons/ArrowLeft';
 import { getPost } from '../../../lib/cosmic';
 import { getRelatedPosts } from '../../../lib/cosmic';
 import SuggestedPostCard from '../../../components/SuggestedPostCard';
@@ -22,9 +22,7 @@ export default async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      {post && post.metadata.hero?.imgix_url && (
-        <Image className='mb-5 h-auto w-full bg-no-repeat object-cover object-center' src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format`} width={2000} height={640} priority alt={post.title} />
-      )}
+      {post && post.metadata.hero?.imgix_url && <Image width={1400} height={720} className='mb-5 h-[720px] w-full bg-no-repeat object-cover object-center' src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format`} priority alt={post.title} placeholder='blur' blurDataURL={`${post.metadata.hero?.imgix_url}?auto=format,compress&q=1&blur=500&w=2`} />}
       <main className='mx-auto flex flex-col justify-center'>
         <div className='mx-auto flex w-full flex-col items-start justify-center px-4 md:flex-row'>
           <div className='mt-4 flex justify-start pb-4 md:justify-center md:pb-0 md:pr-20'>
@@ -44,9 +42,7 @@ export default async ({ params }: { params: { slug: string } }) => {
                     <AuthorAvatar post={post} />
                     <AuthorAttribution post={post} />
                   </div>
-                  <div className='flex select-none justify-start space-x-2 md:justify-end'>
-                    {post.metadata.categories && post.metadata.categories.map((category) => <Tag key={category.title}>{category.title}</Tag>)}
-                  </div>
+                  <div className='flex select-none justify-start space-x-2 md:justify-end'>{post.metadata.categories && post.metadata.categories.map((category) => <Tag key={category.title}>{category.title}</Tag>)}</div>
                 </div>
                 <hr className='w-full border-t border-zinc-300 pb-8 dark:border-zinc-700' />
                 <div dangerouslySetInnerHTML={{ __html: post.metadata.content ?? '' }}></div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import SiteLogo from './SiteLogo';
+import SiteLogo from './logos/SiteLogo';
 import { GlobalData } from '../lib/types';
 
 export default function Header({ name }: { name: GlobalData }): JSX.Element {

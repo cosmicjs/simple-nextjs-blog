@@ -13,14 +13,14 @@ export interface Post {
     published_date: string;
     content: string;
     hero?: {
-      imgix_url: string | null | undefined;
+      imgix_url?: string;
     };
     author?: {
-      slug: string | null | undefined;
-      title: string | null | undefined;
+      slug?: string;
+      title?: string;
       metadata: {
         image?: {
-          imgix_url: string | null | undefined;
+          imgix_url?: string;
         };
       };
     };
@@ -37,7 +37,7 @@ export interface Author {
   title: string;
   metadata: {
     image?: {
-      imgix_url: string | null | undefined;
+      imgix_url?: string;
     };
   };
 }
