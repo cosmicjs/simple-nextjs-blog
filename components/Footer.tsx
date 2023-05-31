@@ -1,5 +1,5 @@
 import React from 'react';
-import CosmicLogo from './CosmicLogo';
+import CosmicLogo from './logos/CosmicLogo';
 
 export default function Footer(): JSX.Element {
   return (

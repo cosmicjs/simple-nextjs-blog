@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import OBMLogo from './OBMLogo';
-import { GlobalData } from '../lib/types';
+import { GlobalData } from '../../lib/types';
 
 export default function SiteLogo({ siteData }: { siteData: GlobalData }): JSX.Element {
   return (
@@ -11,7 +11,7 @@ export default function SiteLogo({ siteData }: { siteData: GlobalData }): JSX.El
           {siteData.metadata.site_title}
         </Link>
       </h1>
-      <span className='hidden text-lg tracking-wide text-zinc-500 dark:text-zinc-200 md:flex top-[-7px] relative'>{siteData.metadata.site_tag}</span>
+      <span className='relative top-[-7px] hidden text-lg tracking-wide text-zinc-500 dark:text-zinc-200 md:flex'>{siteData.metadata.site_tag}</span>
     </div>
   );
 }
