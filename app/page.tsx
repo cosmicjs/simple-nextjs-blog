@@ -19,3 +19,4 @@ export default async function Page(): Promise<JSX.Element> {
     </main>
   );
 }
+export const revalidate = 60

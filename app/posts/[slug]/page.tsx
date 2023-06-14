@@ -70,3 +70,4 @@ export default async ({ params }: { params: { slug: string } }) => {
     </>
   );
 };
+export const revalidate = 60
