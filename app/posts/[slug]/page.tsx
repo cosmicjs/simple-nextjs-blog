@@ -51,7 +51,7 @@ export default async ({ params }: { params: { slug: string } }) => {
             <div className='mx-auto mt-8 w-full'>
               <hr className='w-full border-t border-zinc-300 pb-8 dark:border-zinc-700' />
               {suggestedPosts && (
-                <div className='flex w-full flex-col px-4 lg:px-0'>
+                <div className='flex w-full flex-col'>
                   <h3 className='pb-3 text-xl font-semibold text-zinc-800 dark:text-zinc-200'>Suggested Posts</h3>
                   <div className='flex flex-col space-x-0 space-y-4 md:flex-row md:space-x-4 md:space-y-0'>
                     {suggestedPosts
@@ -70,4 +70,4 @@ export default async ({ params }: { params: { slug: string } }) => {
     </>
   );
 };
-export const revalidate = 60
+export const revalidate = 60;

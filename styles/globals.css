@@ -4,14 +4,14 @@
 
 @layer base {
   h2 {
-    @apply text-zinc-700 dark:text-zinc-300 text-3xl font-bold mt-2 mb-4 leading-tight tracking-tight;
+    @apply mb-4 mt-2 text-3xl font-bold leading-tight tracking-tighter text-zinc-700 dark:text-zinc-300;
   }
 
   h3 {
-    @apply text-zinc-700 dark:text-zinc-300 text-xl font-semibold mt-2 mb-4 leading-snug tracking-tight;
+    @apply mb-4 mt-2 text-xl font-semibold leading-snug tracking-tight text-zinc-700 dark:text-zinc-300;
   }
 
   p {
-    @apply text-zinc-600 dark:text-zinc-400 pb-4 last-of-type:pb-0 leading-relaxed tracking-normal;
+    @apply pb-4 leading-relaxed tracking-normal text-zinc-600 last-of-type:pb-0 dark:text-zinc-400;
   }
 }
