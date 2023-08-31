@@ -19,12 +19,16 @@ export async function generateMetadata() {
   };
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const siteData = await getGlobalData();
 
   return (
-    <html lang='en' className={`${sans.variable} font-sans`}>
-      <body className='bg-white dark:bg-zinc-950'>
+    <html lang="en" className={`${sans.variable} font-sans`}>
+      <body className="bg-white dark:bg-zinc-950">
         <Banner />
         <Header name={siteData} />
         {children}

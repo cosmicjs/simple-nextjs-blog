@@ -1,12 +1,12 @@
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import ArrowRight from './icons/ArrowRight'
-import Tag from './Tag'
-import { Post } from '../lib/types'
-import AuthorAttribution from './AuthorAttribution'
-import AuthorAvatar from './AuthorAvatar'
-import { sanitize } from 'isomorphic-dompurify'
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import ArrowRight from './icons/ArrowRight';
+import Tag from './Tag';
+import { Post } from '../lib/types';
+import AuthorAttribution from './AuthorAttribution';
+import AuthorAvatar from './AuthorAvatar';
+import { sanitize } from 'isomorphic-dompurify';
 
 export default function PostCard({ post }: { post: Post }) {
   return (
@@ -35,7 +35,7 @@ export default function PostCard({ post }: { post: Post }) {
         </div>
         <div className="flex select-none justify-start space-x-2 md:hidden md:justify-end">
           {post.metadata.categories &&
-            post.metadata.categories.map(category => (
+            post.metadata.categories.map((category) => (
               <Tag key={category.title}>{category.title}</Tag>
             ))}
         </div>
@@ -55,11 +55,11 @@ export default function PostCard({ post }: { post: Post }) {
         </Link>
         <div className="hidden select-none justify-end space-x-2 md:flex ">
           {post.metadata.categories &&
-            post.metadata.categories.map(category => (
+            post.metadata.categories.map((category) => (
               <Tag key={category.title}>{category.title}</Tag>
             ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
