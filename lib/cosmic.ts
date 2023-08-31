@@ -50,7 +50,11 @@ export async function getAllPosts(): Promise<Post[]> {
   return Promise.resolve([]);
 }
 
-export async function getPost({ params }: { params: { slug: string } }): Promise<Post> {
+export async function getPost({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Post> {
   try {
     // Get post
     const data: any = await Promise.resolve(
@@ -70,7 +74,11 @@ export async function getPost({ params }: { params: { slug: string } }): Promise
   return Promise.resolve({} as Post);
 }
 
-export async function getRelatedPosts({ params }: { params: { slug: string } }): Promise<Post[]> {
+export async function getRelatedPosts({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Post[]> {
   try {
     // Get suggested posts
     const data: any = await Promise.resolve(
@@ -93,7 +101,11 @@ export async function getRelatedPosts({ params }: { params: { slug: string } }):
   return Promise.resolve([]);
 }
 
-export async function getAuthor({ params }: { params: { id: string; slug: string } }): Promise<Author> {
+export async function getAuthor({
+  params,
+}: {
+  params: { id: string; slug: string };
+}): Promise<Author> {
   try {
     const data: any = await Promise.resolve(
       cosmic.objects
@@ -112,7 +124,11 @@ export async function getAuthor({ params }: { params: { id: string; slug: string
   return Promise.resolve({} as Author);
 }
 
-export async function getAuthorPosts({ authorId }: { authorId: string }): Promise<Post[]> {
+export async function getAuthorPosts({
+  authorId,
+}: {
+  authorId: string;
+}): Promise<Post[]> {
   try {
     // Get Author's posts
     const data: any = await Promise.resolve(
