@@ -91,17 +91,13 @@ export async function getRelatedPosts(slug: string): Promise<Post[]> {
   return Promise.resolve([]);
 }
 
-export async function getAuthor({
-  params,
-}: {
-  params: { id: string; slug: string };
-}): Promise<Author> {
+export async function getAuthor(slug: string): Promise<Author> {
   try {
     const data: any = await Promise.resolve(
       cosmic.objects
         .findOne({
           type: 'authors',
-          slug: params.slug,
+          slug,
         })
         .props('id,title')
         .depth(1)
@@ -114,18 +110,14 @@ export async function getAuthor({
   return Promise.resolve({} as Author);
 }
 
-export async function getAuthorPosts({
-  authorId,
-}: {
-  authorId: string;
-}): Promise<Post[]> {
+export async function getAuthorPosts(id: string): Promise<Post[]> {
   try {
     // Get Author's posts
     const data: any = await Promise.resolve(
       cosmic.objects
         .find({
           type: 'posts',
-          'metadata.author': authorId,
+          'metadata.author': id,
         })
         .props(['id', 'type', 'slug', 'title', 'metadata', 'created_at'])
         .sort('random')
