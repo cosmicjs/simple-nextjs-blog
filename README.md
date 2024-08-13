@@ -8,6 +8,9 @@
 
 This blog uses Next.js to create a React blog. It uses Next.js 15 and the new [Partial Prerendering](https://vercel.com/blog/partial-prerendering-with-next-js-creating-a-new-default-rendering-model) to optimize performance and user experience. It connects to the Cosmic API via the [Cosmic JavaScript SDK](https://www.npmjs.com/package/@cosmicjs/sdk).
 
+### Now opimized for speed and performance.
+<img width="901" alt="simple-next-blog" src="https://github.com/user-attachments/assets/e53ef1be-f5a3-4d5a-9eac-4ddd6b32cec4">
+
 ## Getting Started
 
 1. Log in to Cosmic and install the [Simple Next.js Blog template](https://www.cosmicjs.com/marketplace/templates/simple-nextjs-blog).
