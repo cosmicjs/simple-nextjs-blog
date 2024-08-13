@@ -11,7 +11,7 @@ export async function generateMetadata({
 }) {
   const author = await getAuthor(params.slug);
   return {
-    title: `${author.title} posts | Simple React Blog`,
+    title: `${author.title} posts | Simple Next.js Blog`,
   };
 }
 

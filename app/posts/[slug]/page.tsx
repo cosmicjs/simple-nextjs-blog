@@ -10,7 +10,7 @@ export async function generateMetadata({
 }) {
   const post = await getPost(params.slug);
   return {
-    title: `${post.title} | Simple Next Blog`,
+    title: `${post.title} | Simple Next.js Blog`,
   };
 }
 
