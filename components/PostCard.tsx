@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import ArrowRight from './icons/ArrowRight';
 import Tag from './Tag';
 import { Post } from '../lib/types';
@@ -13,15 +12,10 @@ export default function PostCard({ post }: { post: Post }) {
     <div>
       {post.metadata.hero?.imgix_url && (
         <Link href={`/posts/${post.slug}`}>
-          <Image
-            width={2800}
-            height={400}
+          <img
             className="mb-5 h-[400px] w-full rounded-xl bg-no-repeat object-cover object-center transition-transform duration-200 ease-out hover:scale-[1.02]"
-            src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format`}
-            priority
+            src={`${post.metadata.hero?.imgix_url}?w=1400&auto=compression,format`}
             alt={post.title}
-            placeholder="blur"
-            blurDataURL={`${post.metadata.hero?.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
           />
         </Link>
       )}
