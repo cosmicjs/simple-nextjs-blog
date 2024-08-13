@@ -3,9 +3,9 @@ import { Post, GlobalData, Author } from './types';
 
 const cosmic = createBucketClient({
   // @ts-ignore
-  bucketSlug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG ?? '',
+  bucketSlug: process.env.COSMIC_BUCKET_SLUG ?? '',
   // @ts-ignore
-  readKey: process.env.NEXT_PUBLIC_COSMIC_READ_KEY ?? '',
+  readKey: process.env.COSMIC_READ_KEY ?? '',
 });
 export default cosmic;
 
