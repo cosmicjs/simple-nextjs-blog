@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import ArrowLeft from './icons/ArrowLeft';
 import { getPost, getRelatedPosts } from '../lib/cosmic';
 import SuggestedPostCard from './SuggestedPostCard';
@@ -15,15 +14,12 @@ export async function SinglePost({ slug }: { slug: string }) {
   return (
     <>
       {post && post.metadata.hero?.imgix_url && (
-        <Image
+        <img
           width={1400}
           height={720}
           className="mb-5 h-[720px] w-full bg-no-repeat object-cover object-center"
-          src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format`}
-          priority
+          src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format,compression`}
           alt={post.title}
-          placeholder="blur"
-          blurDataURL={`${post.metadata.hero?.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
         />
       )}
       <main className="mx-auto flex flex-col justify-center">

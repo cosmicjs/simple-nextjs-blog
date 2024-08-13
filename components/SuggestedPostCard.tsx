@@ -9,11 +9,9 @@ export default function PostCard({ post }: { post: Post }) {
     <div>
       {post.metadata.hero?.imgix_url && (
         <Link href={`/posts/${post.slug}`}>
-          <Image
+          <img
             className="mb-5 h-[240px] rounded-xl bg-no-repeat object-cover object-center transition-transform duration-200 ease-out hover:scale-[1.02]"
-            src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format`}
-            width={1400}
-            height={240}
+            src={`${post.metadata.hero?.imgix_url}?w=1400&auto=format,compression`}
             alt={post.title}
           />
         </Link>
@@ -23,13 +21,11 @@ export default function PostCard({ post }: { post: Post }) {
       </h2>
       <div className="flex items-center space-x-2 text-zinc-500 dark:text-zinc-400">
         <Link href={`/author/${post.metadata.author?.slug}`}>
-          <Image
+          <img
             className="h-8 w-8 rounded-full"
-            src={`${post.metadata.author?.metadata.image?.imgix_url}?w=100&auto=format`}
-            width={32}
-            height={32}
+            src={`${post.metadata.author?.metadata.image?.imgix_url}?w=100&auto=format,compression`}
             alt={post.title}
-          ></Image>
+          />
         </Link>
         <div>
           <span>
