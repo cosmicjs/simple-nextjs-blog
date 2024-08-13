@@ -16,6 +16,7 @@ export interface Post {
       imgix_url?: string;
     };
     author?: {
+      id: string;
       slug?: string;
       title?: string;
       metadata: {

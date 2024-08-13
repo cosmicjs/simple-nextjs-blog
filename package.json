@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@cosmicjs/sdk": "^1.0.5",
     "isomorphic-dompurify": "^1.8.0",
-    "next": "^13.4.4",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "lucide-react": "^0.427.0",
+    "next": "canary",
+    "react": "19.0.0-rc-68dbd84b-20240812",
+    "react-dom": "19.0.0-rc-68dbd84b-20240812",
     "typescript": "^5.0.4"
   },
   "engines": {
