@@ -1,7 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk';
-import { Post } from './types';
-import { GlobalData } from './types';
-import { Author } from './types';
+import { Post, GlobalData, Author } from './types';
 
 const cosmic = createBucketClient({
   // @ts-ignore
