@@ -9,18 +9,17 @@ export default function SiteLogo({
   siteData: GlobalData;
 }): React.ReactElement {
   return (
-    <div className="mx-auto flex max-w-3xl items-center space-x-4 p-4 lg:px-0">
-      <Link href="/" className="flex items-center space-x-3">
-        <OBMLogo className="w-10 md:w-12" />
-        <div className="flex items-baseline space-x-3">
-          <span className="text-xl font-extrabold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
-            {siteData?.metadata?.site_title}
-          </span>
-          <span className="text-sm text-zinc-500 md:text-lg dark:text-zinc-400">
-            {siteData?.metadata?.site_tag}
-          </span>
-        </div>
-      </Link>
+    <div className="mx-auto flex max-w-3xl items-center p-4 lg:px-0">
+      {/* Changed: Updated to match new site title design with gradient text */}
+      <h1 className="flex space-x-2">
+        <OBMLogo className="h-8 w-8" />
+        <Link
+          href="/"
+          className="bg-gradient-to-r from-cyan-700 to-teal-600 bg-clip-text text-4xl font-bold tracking-tighter text-transparent dark:from-cyan-300 dark:to-teal-200"
+        >
+          Our Blue Marble
+        </Link>
+      </h1>
     </div>
   );
 }
