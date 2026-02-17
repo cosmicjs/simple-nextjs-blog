@@ -5,7 +5,7 @@ import Tag from './Tag';
 import { Post } from '../lib/types';
 import AuthorAttribution from './AuthorAttribution';
 import AuthorAvatar from './AuthorAvatar';
-import DOMPurify from 'isomorphic-dompurify'; // Changed: use default import instead of named import
+import sanitizeHtml from 'sanitize-html'; // Changed: replaced isomorphic-dompurify with sanitize-html to match SinglePost.tsx
 
 export default function PostCard({ post }: { post: Post }) {
   return (
@@ -37,7 +37,7 @@ export default function PostCard({ post }: { post: Post }) {
       <div
         className="py-6 text-zinc-500 dark:text-zinc-300"
         dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(post.metadata.teaser) ?? '', // Changed: DOMPurify.sanitize()
+          __html: sanitizeHtml(post.metadata.teaser) ?? '', // Changed: use sanitize-html instead of DOMPurify.sanitize()
         }}
       />
       <div className="flex items-center justify-between font-medium text-green-600 dark:text-green-200">
