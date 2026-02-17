@@ -87,7 +87,8 @@ export async function getRelatedPosts(slug: string): Promise<Post[]> {
     // Changed: manual shuffle to replace .sort('random')
     for (let i = suggestedPosts.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [suggestedPosts[i], suggestedPosts[j]] = [suggestedPosts[j], suggestedPosts[i]];
+      // Changed: added non-null assertions since i and j are guaranteed valid indices within array bounds
+      [suggestedPosts[i], suggestedPosts[j]] = [suggestedPosts[j]!, suggestedPosts[i]!];
     }
     return Promise.resolve(suggestedPosts);
   } catch (error) {
