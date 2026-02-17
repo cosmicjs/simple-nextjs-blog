@@ -5,27 +5,30 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "prebuild": "bun run type-check"
   },
   "dependencies": {
-    "@cosmicjs/sdk": "^1.0.5",
-    "isomorphic-dompurify": "^1.8.0",
+    "@cosmicjs/sdk": "^1.6.0",
+    "isomorphic-dompurify": "^2.18.0",
     "lucide-react": "^0.427.0",
-    "next": "canary",
-    "react": "19.0.0-rc-68dbd84b-20240812",
-    "react-dom": "19.0.0-rc-68dbd84b-20240812",
-    "typescript": "^5.0.4"
+    "next": "16.0.10",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "typescript": "^5.7.0"
   },
   "engines": {
     "node": ">=18"
   },
   "devDependencies": {
-    "@types/node": "^20.2.5",
-    "@types/react": "^18.2.7",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prettier": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
     "tailwindcss": "^3.3.2"
   }
 }
