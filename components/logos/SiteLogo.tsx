@@ -1,26 +1,26 @@
+import React from 'react';
 import Link from 'next/link';
-import OBMLogo from './OBMLogo';
 import { GlobalData } from '../../lib/types';
+import OBMLogo from './OBMLogo';
 
 export default function SiteLogo({
   siteData,
 }: {
   siteData: GlobalData;
-}): JSX.Element {
+}): React.ReactElement {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col items-center justify-between px-4 py-4 md:flex-row lg:px-0">
-      <h1 className="flex space-x-2">
-        <OBMLogo className="h-8 w-8" />
-        <Link
-          href="/"
-          className="bg-gradient-to-r from-cyan-700 to-teal-600 bg-clip-text text-4xl font-bold tracking-tighter text-transparent dark:from-cyan-300 dark:to-teal-200"
-        >
-          {siteData.metadata.site_title}
-        </Link>
-      </h1>
-      <span className="relative hidden text-lg tracking-wide text-zinc-500 dark:text-zinc-200 md:flex">
-        {siteData.metadata.site_tag}
-      </span>
+    <div className="mx-auto flex max-w-3xl items-center space-x-4 p-4 lg:px-0">
+      <Link href="/" className="flex items-center space-x-3">
+        <OBMLogo className="w-8 md:w-10" />
+        <div>
+          <span className="text-lg font-bold text-zinc-900 md:text-2xl dark:text-zinc-100">
+            {siteData?.metadata?.site_title}
+          </span>
+          <span className="text-zinc-500 md:text-lg dark:text-zinc-400">
+            &nbsp;&nbsp;{siteData?.metadata?.site_tag}
+          </span>
+        </div>
+      </Link>
     </div>
   );
 }

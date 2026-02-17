@@ -6,7 +6,7 @@ import SuggestedPostCard from './SuggestedPostCard';
 import Tag from './Tag';
 import AuthorAvatar from './AuthorAvatar';
 import AuthorAttribution from './AuthorAttribution';
-import { sanitize } from 'isomorphic-dompurify';
+import DOMPurify from 'isomorphic-dompurify'; // Changed: use default import instead of named import
 
 export async function SinglePost({ slug }: { slug: string }) {
   const post = await getPost(slug);
@@ -54,7 +54,7 @@ export async function SinglePost({ slug }: { slug: string }) {
                 <hr className="w-full border-t border-zinc-300 pb-8 dark:border-zinc-700" />
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: sanitize(post.metadata.content) ?? '',
+                    __html: DOMPurify.sanitize(post.metadata.content) ?? '', // Changed: DOMPurify.sanitize()
                   }}
                 ></div>
               </>
