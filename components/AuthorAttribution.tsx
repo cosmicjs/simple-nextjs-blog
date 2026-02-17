@@ -1,3 +1,4 @@
+import React from 'react';
 import { Post } from '../lib/types';
 import helpers from '../helpers';
 
@@ -5,7 +6,7 @@ export default function AuthorAttribution({
   post,
 }: {
   post: Post;
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <div className="flex space-x-1">
       <span>by</span>

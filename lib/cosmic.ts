@@ -70,7 +70,8 @@ export async function getPost(slug: string): Promise<Post> {
 
 export async function getRelatedPosts(slug: string): Promise<Post[]> {
   try {
-    // Get suggested posts
+    // Changed: removed .sort('random') which is not supported in Cosmic SDK v1.5+
+    // Instead, fetch all non-matching posts and shuffle manually
     const data: any = await Promise.resolve(
       cosmic.objects
         .find({
@@ -80,10 +81,15 @@ export async function getRelatedPosts(slug: string): Promise<Post[]> {
           },
         })
         .props(['id', 'type', 'slug', 'title', 'metadata', 'created_at'])
-        .sort('random')
         .depth(1)
     );
     const suggestedPosts: Post[] = await data.objects;
+    // Changed: manual shuffle to replace .sort('random')
+    for (let i = suggestedPosts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      // Changed: added non-null assertions since i and j are guaranteed valid indices within array bounds
+      [suggestedPosts[i], suggestedPosts[j]] = [suggestedPosts[j]!, suggestedPosts[i]!];
+    }
     return Promise.resolve(suggestedPosts);
   } catch (error) {
     console.log('Oof', error);
@@ -112,7 +118,7 @@ export async function getAuthor(slug: string): Promise<Author> {
 
 export async function getAuthorPosts(id: string): Promise<Post[]> {
   try {
-    // Get Author's posts
+    // Changed: removed .sort('random') which is not supported in Cosmic SDK v1.5+
     const data: any = await Promise.resolve(
       cosmic.objects
         .find({
@@ -120,7 +126,6 @@ export async function getAuthorPosts(id: string): Promise<Post[]> {
           'metadata.author': id,
         })
         .props(['id', 'type', 'slug', 'title', 'metadata', 'created_at'])
-        .sort('random')
         .depth(1)
     );
     const authorPosts: Post[] = await data.objects;

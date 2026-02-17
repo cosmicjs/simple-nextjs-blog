@@ -1,7 +1,8 @@
+import React from 'react';
 import Link from 'next/link';
 import { Post } from '../lib/types';
 
-export default function AuthorAvatar({ post }: { post: Post }): JSX.Element {
+export default function AuthorAvatar({ post }: { post: Post }): React.ReactElement {
   return (
     <Link href={`/author/${post.metadata.author?.slug}`}>
       <img

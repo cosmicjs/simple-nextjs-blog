@@ -1,8 +1,10 @@
+import React from 'react';
+
 export default function ArrowRight({
   className,
 }: {
   className: string;
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <svg
       height={20}

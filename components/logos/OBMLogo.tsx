@@ -1,8 +1,10 @@
+import React from 'react';
+
 export default function OBMLogo({
   className,
 }: {
-  className?: string;
-}): JSX.Element {
+  className: string;
+}): React.ReactElement {
   return (
     <svg
       width="512"
