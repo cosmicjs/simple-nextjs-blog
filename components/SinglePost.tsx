@@ -6,7 +6,7 @@ import SuggestedPostCard from './SuggestedPostCard';
 import Tag from './Tag';
 import AuthorAvatar from './AuthorAvatar';
 import AuthorAttribution from './AuthorAttribution';
-import DOMPurify from 'isomorphic-dompurify'; // Changed: use default import instead of named import
+import sanitizeHtml from 'sanitize-html'; // Changed: replaced isomorphic-dompurify with sanitize-html to fix jsdom ESM error
 
 export async function SinglePost({ slug }: { slug: string }) {
   const post = await getPost(slug);
@@ -54,7 +54,14 @@ export async function SinglePost({ slug }: { slug: string }) {
                 <hr className="w-full border-t border-zinc-300 pb-8 dark:border-zinc-700" />
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(post.metadata.content) ?? '', // Changed: DOMPurify.sanitize()
+                    __html: sanitizeHtml(post.metadata.content, { // Changed: use sanitize-html instead of DOMPurify
+                      allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2']),
+                      allowedAttributes: {
+                        ...sanitizeHtml.defaults.allowedAttributes,
+                        '*': ['id', 'class', 'style'],
+                        img: ['src', 'alt', 'width', 'height', 'loading'],
+                      },
+                    }),
                   }}
                 ></div>
               </>
@@ -68,7 +75,6 @@ export async function SinglePost({ slug }: { slug: string }) {
                   </h3>
                   <div className="flex flex-col space-x-0 space-y-4 md:flex-row md:space-x-4 md:space-y-0">
                     {suggestedPosts
-                      // .filter((nextPost) => nextPost?.id !== post?.id)
                       .slice(0, 2)
                       .map((post) => {
                         return <SuggestedPostCard key={post.id} post={post} />;
