@@ -19,7 +19,7 @@
     "typescript": "^5.7.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
