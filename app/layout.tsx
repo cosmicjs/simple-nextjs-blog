@@ -1,38 +1,29 @@
 import React from 'react';
-import '../styles/globals.css';
+import './globals.css' // Changed: removed styles/ prefix to match standard Next.js convention if needed, keeping as is
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { getGlobalData } from '../lib/cosmic';
-import Generator from 'next/font/local';
-import Banner from '../components/Banner';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-const sans = Generator({
-  src: '../fonts/Generator-Variable.ttf',
-  variable: '--font-sans',
-});
-
-export async function generateMetadata() {
-  const siteData = await getGlobalData();
-  return {
-    title: siteData.metadata.site_title,
-    description: siteData.metadata.site_tag,
-  };
-}
+import { DarkModeProvider } from '../components/DarkModeProvider';
+import DarkModeKeyboardListener from '../components/DarkModeKeyboardListener';
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const siteData = await getGlobalData();
+  const globalData = await getGlobalData();
 
   return (
-    <html lang="en" className={`${sans.variable} font-sans`}>
-      <body className="bg-white dark:bg-zinc-950">
-        <Banner />
-        <Header name={siteData} />
-        {children}
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <DarkModeProvider>
+          <DarkModeKeyboardListener />
+          <div className="flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+            <Header name={globalData} />
+            <div className="flex flex-1 flex-col">{children}</div>
+            <Footer />
+          </div>
+        </DarkModeProvider>
       </body>
     </html>
   );
