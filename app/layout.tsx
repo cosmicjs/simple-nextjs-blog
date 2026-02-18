@@ -1,7 +1,7 @@
 import React from 'react';
-import './globals.css' // Changed: removed styles/ prefix to match standard Next.js convention if needed, keeping as is
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import './globals.css'
+import Header from '../components/Header'; // Changed: use default import (component uses export default)
+import Footer from '../components/Footer'; // Changed: use default import (component uses export default)
 import { getGlobalData } from '../lib/cosmic';
 import { DarkModeProvider } from '../components/DarkModeProvider';
 import DarkModeKeyboardListener from '../components/DarkModeKeyboardListener';
