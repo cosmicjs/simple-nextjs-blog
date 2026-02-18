@@ -9,9 +9,9 @@ export default function SiteLogo({
   siteData: GlobalData;
 }): React.ReactElement {
   return (
-    <div className="mx-auto flex max-w-3xl items-center justify-between p-4 lg:px-0">
-      {/* Changed: Added site_tag back alongside the site title */}
-      <h1 className="flex space-x-2">
+    <>
+      {/* Site title - left side */}
+      <h1 className="flex items-center space-x-2">
         <OBMLogo className="h-8 w-8" />
         <Link
           href="/"
@@ -20,12 +20,12 @@ export default function SiteLogo({
           {siteData?.metadata?.site_title ?? 'Our Blue Marble'}
         </Link>
       </h1>
-      {/* Changed: Added site_tag display from Cosmic CMS globals */}
+      {/* Subheadline - right side */}
       {siteData?.metadata?.site_tag && (
         <p className="hidden text-zinc-600 dark:text-zinc-400 md:block">
           {siteData.metadata.site_tag}
         </p>
       )}
-    </div>
+    </>
   );
 }
